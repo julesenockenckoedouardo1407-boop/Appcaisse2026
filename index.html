@@ -1,4 +1,4 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#176b45"><link rel="manifest" href="manifest.json"><title>AppCaisse v1.0</title>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#176b45"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icons/icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><title>AppCaisse v1.1</title>
 <style>
 :root{--g:#176b45;--g2:#0d4d32;--y:#d8ad2f;--bg:#f4f7f5;--card:#fff;--txt:#173126;--mut:#68776f;--line:#dce5df;--red:#b83232}
 *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--txt)}header{background:linear-gradient(135deg,var(--g2),var(--g));color:white;padding:18px 15px;position:sticky;top:0;z-index:5}header h1{margin:0;font-size:24px}header p{margin:5px 0 0;font-size:13px}
@@ -11,7 +11,7 @@ label{display:block;font-size:12px;font-weight:bold;color:var(--mut);margin-bott
 .note{font-size:12px;color:var(--mut)}footer{text-align:center;color:var(--mut);font-size:12px;padding:20px}
 @media print{header,nav,.no-print{display:none!important}section{display:none!important}section.print-target{display:block!important}body{background:#fff}.card{box-shadow:none;border:0}}
 </style></head><body>
-<header><h1>💰 AppCaisse v1.0</h1><p>GESTION DE CAISSE • Hors ligne • Données enregistrées sur cet appareil</p></header><nav id="nav"></nav><main>
+<header><h1>💰 AppCaisse v1.1</h1><p>GESTION DE CAISSE • Hors ligne • Données enregistrées sur cet appareil</p></header><nav id="nav"></nav><main>
 <section id="accueil" class="active"><div class="card"><h2>🏠 Tableau de bord</h2><div class="kpis">
 <div class="kpi">Solde actuel<b id="solde">0 HTG</b></div><div class="kpi">Total recettes<b id="recettes">0 HTG</b></div><div class="kpi">Total dépenses<b id="depenses">0 HTG</b></div><div class="kpi">Opérations<b id="ops">0</b></div></div></div>
 <div class="card"><h2>📅 Aujourd'hui</h2><div id="today"></div></div><div class="card"><h2>📆 Ce mois</h2><div id="month"></div></div></section>
@@ -33,7 +33,7 @@ label{display:block;font-size:12px;font-weight:bold;color:var(--mut);margin-bott
 <section id="sauvegarde"><div class="card"><h2>💾 Sauvegarde / restauration</h2><p class="note">Exportez régulièrement vos données. La sauvegarde contient le solde initial et toutes les opérations.</p><div class="actions"><button class="primary" onclick="backup()">⬇️ Exporter JSON</button><label class="secondary" style="display:inline-block;cursor:pointer">⬆️ Importer JSON<input id="restore" type="file" accept=".json" style="display:none" onchange="restore(this)"></label><button class="danger" onclick="clearAll()">Effacer toutes les données</button></div></div></section>
 
 <section id="securite"><div class="card"><h2>🔐 Code PIN</h2><p class="note">Le PIN protège l'ouverture de l'application sur cet appareil.</p><div class="grid"><div><label>Nouveau PIN (4 à 8 chiffres)</label><input id="pin" type="password" inputmode="numeric" maxlength="8"></div></div><div class="actions"><button class="primary" onclick="setPin()">Enregistrer le PIN</button><button class="secondary" onclick="removePin()">Désactiver le PIN</button></div></div></section>
-</main><footer>AppCaisse v1.0 • Fonctionnement hors ligne</footer>
+</main><footer>AppCaisse v1.1 • Fonctionnement hors ligne</footer>
 <script>
 const KEY='appcaisse_v1_data';let db=JSON.parse(localStorage.getItem(KEY)||'{"initial":0,"recettes":[],"depenses":[],"pin":""}');
 const tabs=[['accueil','🏠 Accueil'],['initial','⚙️ Solde initial'],['recette','💵 Recette'],['depense','💸 Dépense'],['journal','📒 Journal'],['rapports','📊 Rapports'],['sauvegarde','💾 Sauvegarde'],['securite','🔐 Sécurité']];
